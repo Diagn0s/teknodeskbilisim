@@ -1,65 +1,107 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+import { blogPosts } from "@/lib/site-data";
+import { Button } from "@/components/ui/button";
+import { SectionHeading } from "@/components/section-heading";
+import { Hero } from "@/components/home/hero";
+import { ServicesBento } from "@/components/home/services-bento";
+import { WhyUs } from "@/components/home/why-us";
+import { LogoMarquee } from "@/components/home/logo-marquee";
+import { TestimonialsMarquee } from "@/components/home/testimonials-marquee";
+import { CtaSection } from "@/components/home/cta-section";
+import { BlogCard } from "@/components/blog-card";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Hero />
+
+      <section className="border-b border-border/60 py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-6 text-center text-xs font-medium tracking-widest text-muted-foreground uppercase">
+            Güvenini kazandığımız kurumlardan bazıları
           </p>
+          <LogoMarquee />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Hizmetlerimiz"
+            title="Uçtan uca kurumsal bilişim çözümleri"
+            description="Kablolamadan sunucu sanallaştırmaya, kamera sistemlerinden bilgi işlem desteğine kadar ihtiyacınız olan her hizmeti tek bir çatı altında sunuyoruz."
+          />
+          <div className="mt-12">
+            <ServicesBento />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border/60 bg-card/40 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Neden Tekno Desk"
+            title="Kurumunuzun teknoloji ortağı olmaya hazırız"
+            align="center"
+            className="mx-auto"
+          />
+          <div className="mt-12">
+            <WhyUs />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Referanslar"
+            title="Müşterilerimiz bizim için ne diyor?"
+            align="center"
+            className="mx-auto"
+          />
+        </div>
+        <div className="mt-12">
+          <TestimonialsMarquee />
+        </div>
+        <div className="mt-10 flex justify-center">
+          <Button asChild variant="outline" className="rounded-full">
+            <Link href="/referanslar">
+              Tüm referansları gör
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      <section className="border-t border-border/60 bg-card/40 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading
+              eyebrow="Blog"
+              title="Bilişim dünyasından güncel içerikler"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <Button asChild variant="outline" className="rounded-full">
+              <Link href="/blog">
+                Tüm yazılar
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </div>
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {blogPosts.slice(0, 3).map((post) => (
+              <BlogCard key={post.slug} post={post} />
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <CtaSection />
+        </div>
+      </section>
+    </>
   );
 }

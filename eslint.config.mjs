@@ -5,6 +5,16 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    // Vendored shadcn/ui + Magic UI components are generated via the CLI and
+    // kept as-is so they stay upgradeable; relax the stricter react-hooks
+    // rules for this folder only.
+    files: ["src/components/ui/**/*.{ts,tsx}"],
+    rules: {
+      "react-hooks/purity": "off",
+      "react-hooks/set-state-in-effect": "off",
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

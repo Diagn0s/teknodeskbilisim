@@ -95,6 +95,18 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
+        <div className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-2xl border border-border/60">
+            <iframe
+              title="Tekno Desk Bilişim Konum"
+              src="https://maps.google.com/maps?q=%C4%B0stanbul&t=&z=11&ie=UTF8&iwloc=&output=embed"
+              className="h-[400px] w-full sm:h-[450px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
       </section>
     </>
   );
